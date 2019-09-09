@@ -19,6 +19,10 @@ if (process.env.NICKPASS.length > 0) {
 	ircOpts.userName = process.env.NICK;
 	ircOpts.password = process.env.NICKPASS;
 };
+if (process.env.SSL == 'true') {
+	ircOpts.secure = true;
+	ircOpts.port = 6697;
+};
 
 // Create the bot name
 var bot = new irc.Client(process.env.SERVER, process.env.NICK, ircOpts);
